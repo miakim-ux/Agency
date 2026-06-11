@@ -4,16 +4,16 @@ import {
   Monitor, 
   Layers, 
   Code, 
-  ArrowUpRight, 
   ArrowRight, 
   Mail, 
   Copy, 
   Check, 
   CheckCircle,
   Sparkles,
-  TrendingUp,
   ExternalLink,
-  MessageSquare
+  ChevronRight,
+  Menu,
+  X
 } from 'lucide-react';
 
 import { SERVICES, PROJECTS, PARTNERS } from './data';
@@ -21,14 +21,161 @@ import { Project, Service } from './types';
 
 // Modular UI components
 import ProjectDetailModal from './components/ProjectDetailModal';
-import ProjectPlannerWizard from './components/ProjectPlannerWizard';
 import PartnerProgramModal from './components/PartnerProgramModal';
 import TestimonialSlider from './components/TestimonialSlider';
+
+function ProjectVectorShowcase({ projectId }: { projectId: string }) {
+  if (projectId === 'nexgen-retail') {
+    return (
+      <div className="w-full h-full bg-[#0b0f19] relative flex items-center justify-center p-6 select-none overflow-hidden text-white">
+        {/* Background mesh grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:20px_20px]" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
+        
+        <svg viewBox="0 0 400 225" className="w-full h-full relative z-10 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Volumetric / wireframe container cube represent luxury product configurations */}
+          <g transform="translate(200, 112)">
+            {/* Holographic outer lines */}
+            <path d="M 0,-56 L 64,-24 L 64,32 L 0,64 L -64,32 L -64,-24 Z" stroke="#ffffff" strokeWidth="1" strokeDasharray="3 3" opacity="0.8" />
+            <path d="M 0,-56 L 0,64" stroke="#1e293b" strokeWidth="1" />
+            <path d="M -64,-24 L 64,32" stroke="#1e293b" strokeWidth="1" />
+            <path d="M -64,32 L 64,-24" stroke="#1e293b" strokeWidth="1" />
+            
+            {/* Interactive orbit spheres */}
+            <circle cx="0" cy="4" r="28" stroke="#ffffff" strokeWidth="1.2" />
+            <circle cx="-45" cy="5" r="3" fill="#10b981" />
+            <line x1="-45" y1="5" x2="45" y2="5" stroke="#334155" strokeWidth="1" />
+            <circle cx="45" cy="5" r="3" fill="#ffffff" />
+            
+            {/* Dimension HUD tags */}
+            <line x1="64" y1="-24" x2="100" y2="-45" stroke="#ffffff" strokeWidth="1" />
+            <rect x="100" y="-55" width="54" height="15" rx="3.5" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+            <text x="105" y="-45" fill="#ffffff" style={{ fontSize: '5px' }} className="font-mono font-bold">R_Z: 42.8°</text>
+          </g>
+
+          {/* Sourcing widgets / Stats inside mock design canvas */}
+          <rect x="20" y="20" width="104" height="38" rx="6" fill="#1e293b" stroke="#334155" strokeWidth="1" />
+          <circle cx="32" cy="38" r="3" fill="#10b981" />
+          <text x="44" y="34" fill="#ffffff" style={{ fontSize: '6px' }} className="font-bold font-sans">Multi-Region Sourcing</text>
+          <text x="44" y="42" fill="#94a3b8" style={{ fontSize: '5px' }} className="font-sans">99.98% Transaction accuracy</text>
+
+          {/* Right Floating Cart Stat Widget */}
+          <rect x="276" y="148" width="104" height="56" rx="8" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+          <text x="286" y="162" fill="#10b981" style={{ fontSize: '5.5px' }} className="font-mono font-bold uppercase tracking-wider">SALES INTENSITY</text>
+          <text x="286" y="178" fill="#ffffff" style={{ fontSize: '10px' }} className="font-mono font-bold">$14,845.20</text>
+          <text x="286" y="188" fill="#94a3b8" style={{ fontSize: '5px' }} className="font-sans">Completed transactions</text>
+          
+          <path d="M 286,196 L 310,190 L 330,195 L 350,188 L 370,192" stroke="#10b981" strokeWidth="1" fill="none" />
+        </svg>
+      </div>
+    );
+  }
+  
+  if (projectId === 'aura-fintech') {
+    return (
+      <div className="w-full h-full bg-[#0a0e1a] relative flex items-center justify-center p-6 select-none overflow-hidden text-white">
+        {/* Background mesh grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:20px_20px]" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#10b981]/10 via-transparent to-transparent pointer-events-none" />
+        
+        <svg viewBox="0 0 400 225" className="w-full h-full relative z-10 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Abstract radar circles */}
+          <circle cx="200" cy="112" r="130" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="5 5" fill="none" opacity="0.45" />
+          <circle cx="200" cy="112" r="80" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3" fill="none" opacity="0.45" />
+
+          {/* Main Financial Analytics curve */}
+          <path d="M 30,150 Q 110,170 160,105 T 260,82 T 370,45" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          
+          {/* Glowing node points */}
+          <circle cx="160" cy="105" r="4.5" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
+          <circle cx="260" cy="82" r="4.5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+          
+          {/* Floating Asset Allocation Bubbles with indicators */}
+          <g transform="translate(85, 65)">
+            <circle cx="0" cy="0" r="23" fill="rgba(255,255,255,0.08)" stroke="#ffffff" strokeWidth="1" />
+            <text x="0" y="2" fill="#ffffff" textAnchor="middle" style={{ fontSize: '6px' }} className="font-bold font-mono">EQUITIES</text>
+            <text x="0" y="9" fill="#94a3b8" textAnchor="middle" style={{ fontSize: '5px' }} className="font-sans">48.2%</text>
+          </g>
+
+          <g transform="translate(315, 135)">
+            <circle cx="0" cy="0" r="26" fill="rgba(16,185,129,0.12)" stroke="#10b981" strokeWidth="1" />
+            <text x="0" y="2" fill="#10b981" textAnchor="middle" style={{ fontSize: '6px' }} className="font-bold font-mono">ASSETS</text>
+            <text x="0" y="9" fill="#94a3b8" textAnchor="middle" style={{ fontSize: '5px' }} className="font-sans">32.6%</text>
+          </g>
+
+          {/* Interactive Financial HUD parameters */}
+          <rect x="24" y="160" width="134" height="42" rx="6" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+          <text x="32" y="174" fill="#cbd5e1" style={{ fontSize: '5.5px' }} className="font-semibold tracking-wider">AUM PORTFOLIO INDEX</text>
+          <text x="32" y="190" fill="#ffffff" style={{ fontSize: '11px' }} className="font-bold font-mono">$1,248,390.00</text>
+
+          {/* Risk Level Badge */}
+          <g transform="translate(260, 24)">
+            <rect x="0" y="0" width="114" height="22" rx="11" fill="#10b981" />
+            <text x="57" y="14" fill="#064e3b" textAnchor="middle" style={{ fontSize: '7.5px' }} className="font-bold tracking-wider font-mono">SYS_RISK: OPTIMAL</text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  // default/vortex-protocol
+  return (
+    <div className="w-full h-full bg-[#080c16] relative flex items-center justify-center p-6 select-none overflow-hidden text-white">
+      {/* Background mesh grid */}      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:20px_20px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent pointer-events-none" />
+      
+      <svg viewBox="0 0 400 225" className="w-full h-full relative z-10 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Node interconnect cluster network */}
+        <g stroke="#2d3748" strokeWidth="0.8">
+          <line x1="80" y1="55" x2="180" y2="35" />
+          <line x1="180" y1="35" x2="280" y2="75" />
+          <line x1="280" y1="75" x2="310" y2="155" />
+          <line x1="310" y1="155" x2="220" y2="175" />
+          <line x1="220" y1="175" x2="100" y2="135" />
+          <line x1="100" y1="135" x2="80" y2="55" />
+          <line x1="180" y1="35" x2="220" y2="175" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="3 3" />
+          <line x1="100" y1="135" x2="280" y2="75" stroke="#10b981" strokeWidth="0.8" strokeDasharray="3 3" />
+        </g>
+ 
+        {/* Nodes */}
+        <circle cx="80" cy="55" r="5.5" fill="#1e293b" stroke="#334155" strokeWidth="1" />
+        <circle cx="180" cy="35" r="7.5" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.2" />
+        <circle cx="280" cy="75" r="5.5" fill="#1e293b" stroke="#334155" strokeWidth="1" />
+        <circle cx="310" cy="155" r="6.5" fill="#10b981" stroke="#ffffff" strokeWidth="1.2" />
+        <circle cx="220" cy="175" r="5.5" fill="#1e293b" stroke="#334155" strokeWidth="1" />
+        <circle cx="100" cy="135" r="6.5" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.2" />
+
+        {/* Floating blockchain ledger transactions block stack */}
+        <g transform="translate(30, 85)">
+          <rect x="0" y="0" width="112" height="60" rx="8" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+          <text x="10" y="15" fill="#94a3b8" style={{ fontSize: '5.5px' }} className="font-mono tracking-wider font-bold">MUTABLE LEDGER</text>
+          
+          <rect x="10" y="22" width="92" height="13" rx="3.5" fill="#1e293b" />
+          <text x="14" y="31" fill="#10b981" style={{ fontSize: '5px' }} className="font-mono font-bold">0x4df2...9b01</text>
+          <text x="76" y="30" fill="#ffffff" style={{ fontSize: '4.5px' }} className="font-sans">SUCCEED</text>
+
+          <rect x="10" y="39" width="92" height="13" rx="3.5" fill="#1e293b" />
+          <text x="14" y="48" fill="#38bdf8" style={{ fontSize: '5px' }} className="font-mono font-bold">0x7a2d...38ac</text>
+          <text x="76" y="47" fill="#ffffff" style={{ fontSize: '4.5px' }} className="font-sans">CONFIRMED</text>
+        </g>
+
+        {/* Cryptographic Depth Meter */}
+        <g transform="translate(254, 105)">
+          <rect x="0" y="0" width="116" height="42" rx="6" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+          <text x="8" y="14" fill="#94a3b8" style={{ fontSize: '5.5px' }} className="font-mono font-bold">AGGREGATION POOL</text>
+          <path d="M 8,34 Q 28,32 50,21 T 90,30 T 110,16" stroke="#10b981" strokeWidth="1.5" fill="none" />
+          <circle cx="50" cy="21" r="3" fill="#10b981" stroke="#0f172a" strokeWidth="0.5" />
+        </g>
+      </svg>
+    </div>
+  );
+}
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // Showcase project list filtering
   const [activeFilter, setActiveFilter] = useState('All');
@@ -48,189 +195,397 @@ export default function App() {
   };
 
   const handleScrollToPlanner = () => {
-    const element = document.getElementById('project-estimate-section');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsPartnerModalOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-[#0e131e] text-[#dee2f2] relative overflow-hidden font-sans selection:bg-[#b7c4ff]/30 selection:text-white">
+    <div className="min-h-screen bg-[#0a0f1d] text-apple-ink relative font-sans selection:bg-apple-blue/20 selection:text-apple-ink overflow-x-hidden">
       
-      {/* Background glow meshes */}
-      <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-indigo-900/10 glow-blur" />
-      <div className="absolute top-[30%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-900/8 glow-blur" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-cyan-900/10 glow-blur" />
-
-      {/* --- HEADER NAVIGATION --- */}
-      <header className="sticky top-0 z-50 bg-[#0e131e]/75 backdrop-blur-md border-b border-white/6 px-4 md:px-12 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      {/* --- Sticky Unified Dark Header (Solid/Frosted Slate-Dark, matching reference design) --- */}
+      <header className="sticky top-0 z-50 bg-[#0a0f1d] border-b border-white/10 px-6 md:px-12 py-3.5">
+        <div className="w-full flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <span className="text-xl font-black tracking-[0.14em] font-display text-white group-hover:text-[#b7c4ff] transition duration-200">
-              NEON_LABS
-            </span>
-          </a>
+          <div className="flex items-center">
+            <a href="#" className="font-bold text-white text-[19px] tracking-[0.015em] font-display hover:opacity-90 transition">
+              LABS.
+            </a>
+          </div>
 
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-[#8e90a0]">
-            <a href="#selected-works" className="hover:text-white transition duration-200">Work</a>
-            <a href="#our-expertise" className="hover:text-white transition duration-200">Services</a>
-            <a href="#strategic-partnerships" className="hover:text-white transition duration-200">Studio</a>
-            <a href="#testimonials" className="hover:text-white transition duration-200">Insights</a>
-          </nav>
+          {/* Center-Right Nav Links & CTA button */}
+          <div className="flex items-center gap-10">
+            <nav className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-gray-300">
+              <a href="#selected-works" className="hover:text-white transition duration-150">Work</a>
+              <a href="#our-expertise" className="hover:text-white transition duration-150">Services</a>
+              <a href="#strategic-partnerships" className="hover:text-white transition duration-150">Studio</a>
+              <a href="#testimonials" className="hover:text-white transition duration-150">Insights</a>
+            </nav>
 
-          {/* CTA */}
-          <button
-            id="start-project-header-btn"
-            onClick={handleScrollToPlanner}
-            className="px-5 py-2.5 text-xs font-bold font-display uppercase tracking-wider rounded-lg border border-[#b7c4ff]/35 bg-[#b7c4ff]/6 hover:bg-[#b7c4ff]/15 text-[#b7c4ff] hover:text-white transition duration-300 shadow-[0_0_15px_-4px_rgba(183,196,255,0.2)] hover:shadow-[#b7c4ff]/15 cursor-pointer"
-          >
-            Start Project
-          </button>
+            <button
+              id="header-start-project-btn"
+              onClick={handleScrollToPlanner}
+              className="px-5 py-2 text-[13px] font-semibold rounded-full bg-apple-blue hover:bg-apple-blue-focus text-[#0a0f1d] transition-all duration-200 cursor-pointer shadow-sm shadow-white/5 active:scale-95"
+            >
+              Start Project
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button 
+              id="mobile-nav-toggle-btn"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-gray-300 hover:text-white focus:outline-none cursor-pointer p-1"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-16 md:pt-28 pb-20 px-4 md:px-12">
-        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-2">
-          {/* Status Capsule */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#b7c4ff]/8 border border-[#b7c4ff]/20 text-xs font-medium text-[#b7c4ff] backdrop-blur-sm shadow-sm"
+      {/* Mobile Slide Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#0a0f1d] border-b border-white/10 text-gray-250 text-sm py-4 px-6 space-y-4 absolute w-full left-0 z-40 overflow-hidden"
           >
-            <Sparkles className="h-3.5 w-3.5 text-[#b7c4ff] animate-pulse" />
-            <span className="font-display font-semibold uppercase tracking-wider text-[10px]">Pioneering Creative Digital Systems</span>
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-black font-display text-white leading-[1.1] tracking-tight"
-          >
-            Digital Experiences <br />
-            That <span className="bg-gradient-to-r from-cyan-400 via-[#b7c4ff] to-purple-400 bg-clip-text text-transparent">Define Future</span>
-          </motion.h1>
-
-          {/* Subheading text (Matching korean exactly) */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base text-[#c4c5d7] leading-relaxed max-w-2xl mx-auto font-sans"
-          >
-            혁신적인 웹 개발과 브랜딩으로 귀하의 비즈니스를 다음 단계로 끌어올립니다. 우리는 단순한 웹사이트가 아닌, 디지털 자산을 구축합니다.
-          </motion.p>
-
-          {/* CTA Action buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <button
-              id="hero-planner-scroll-btn"
-              onClick={handleScrollToPlanner}
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#b7c4ff] to-indigo-300 text-[#002683] hover:text-white font-bold text-sm tracking-wide rounded-full hover:shadow-[0_0_25px_-5px_rgba(183,196,255,0.4)] transition-all duration-300 cursor-pointer hover:scale-102"
+            <a href="#selected-works" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-white transition py-1 font-medium">Work</a>
+            <a href="#our-expertise" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-white transition py-1 font-medium">Services</a>
+            <a href="#strategic-partnerships" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-white transition py-1 font-medium">Studio</a>
+            <a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-white transition py-1 font-medium">Insights</a>
+            <button 
+              id="mobile-nav-start-btn"
+              onClick={() => { setIsMobileMenuOpen(false); handleScrollToPlanner(); }} 
+              className="w-full text-center py-2 bg-apple-blue hover:bg-apple-blue-focus text-[#0a0f1d] rounded-full font-semibold text-xs cursor-pointer transition"
             >
-              <span>Start a Project</span>
-              <ArrowRight className="h-4.5 w-4.5" />
+              Start Project
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* --- HERO SECTION (High-fidelity custom visual showcase, matching reference style) --- */}
+      <section className="relative bg-[#0a0f1d] pt-20 pb-24 px-4 md:px-8 flex flex-col items-center text-center">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Large display (56px-72px, weight 600, negative tracking-[-0.28px]) */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-[-0.025em] text-white leading-[1.08] font-display">
+            Digital Interfaces <br />
+            That <span className="text-apple-blue">Define Future.</span>
+          </h1>
+
+          {/* Editorial Paragraph (17px, line height 1.47, text leading-relaxed) */}
+          <p className="text-[17px] leading-[1.47] text-apple-ink-muted max-w-2xl mx-auto font-sans font-normal tracking-[-0.012em]">
+            Elevating your business with premium digital assets, meticulous aesthetic design, and seamless user experiences.
+          </p>
+
+          {/* Compact Pill actions */}
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              id="hero-planner-start-btn"
+              onClick={handleScrollToPlanner}
+              className="inline-flex items-center justify-center gap-1.5 w-[240px] h-[56px] bg-white hover:bg-[#e2e8f0] active:scale-95 text-black text-[15px] font-semibold tracking-wide rounded-full transition-all duration-200 cursor-pointer shadow-sm shadow-white/5"
+            >
+              <span>Design your Blueprint</span>
+              <ArrowRight className="h-4 w-4" />
             </button>
             <a 
               href="#selected-works" 
-              className="px-6 py-3.5 font-bold text-sm tracking-wide text-[#8e90a0] hover:text-white transition duration-200"
+              className="inline-flex items-center justify-center w-[240px] h-[56px] font-semibold text-[15px] text-white border border-white/20 hover:border-white/40 hover:bg-white/10 rounded-full transition-all duration-200 cursor-pointer active:scale-95"
             >
-              Explore Works &darr;
+              Explore products &darr;
             </a>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Big subtle wireframe graphic background */}
-        <div className="absolute left-1/2 bottom-[-60px] -translate-x-1/2 w-full max-w-5xl h-[300px] bg-[radial-gradient(ellipse_200%_100%_at_bottom,#1a2235,transparent)] opacity-40 rounded-full blur-2xl -z-1" />
+        {/* --- MAIN SHOWCASE MODULE (Mimics the high-end reference style) --- */}
+        <div className="w-full max-w-5xl mt-16 space-y-12 text-left">
+          
+          {/* 1. Upper Showcase Banner */}
+          <div className="bg-apple-pearl rounded-[2rem] p-6 sm:p-12 border border-apple-hairline shadow-md relative overflow-hidden">
+              
+              {/* Inside Mock Navbar */}
+              <div className="flex items-center justify-between border-b border-apple-hairline pb-5 mb-8 text-xs text-apple-ink-muted font-medium">
+                <div className="flex items-center gap-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-apple-blue" />
+                  <span className="font-bold text-white tracking-wider">LABS.</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold text-gray-500">
+                  <span className="hover:text-white cursor-pointer transition">Technology</span>
+                  <span className="hover:text-white cursor-pointer transition">Pricing</span>
+                </div>
+                <div className="flex items-center gap-5">
+                  <span className="hidden md:inline hover:text-white cursor-pointer transition">Blog</span>
+                  <button className="bg-apple-blue hover:bg-apple-blue-focus text-[#0a0f1d] font-bold text-[10.5px] px-3.5 py-1.5 rounded-full transition cursor-pointer">
+                    View Demo
+                  </button>
+                </div>
+              </div>
+
+              {/* Showcase Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left Text */}
+                <div className="md:col-span-5 space-y-6 pr-4">
+                  <div className="space-y-1">
+                    <p className="text-[11px] font-bold text-apple-blue uppercase tracking-widest">Save time and money.</p>
+                    <p className="text-[11px] font-semibold text-apple-ink-muted">Automated Inventory Management</p>
+                  </div>
+                  <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05] font-display">
+                    Optimize, <br />
+                    Outperform
+                  </h2>
+                </div>
+
+                {/* Right Illustration Area (Hand holding phone, clean minimalist line art style) */}
+                <div className="md:col-span-7 flex justify-center items-center relative min-h-[280px]">
+                  {/* Fluid decorative backgrounds */}
+                  <div className="absolute w-56 h-56 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+                  
+                  {/* Clean SVG Artwork */}
+                  <svg
+                    viewBox="0 0 420 380"
+                    className="w-full max-w-[360px] h-auto relative z-10 drop-shadow-lg"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    {/* Dotted target lines */}
+                    <path d="M 60,180 L 360,180" stroke="#1e293b" strokeDasharray="4 4" strokeWidth="1" />
+                    <path d="M 210,40 L 210,340" stroke="#1e293b" strokeDasharray="4 4" strokeWidth="1" />
+                    <circle cx="210" cy="180" r="100" stroke="#1f2937" strokeWidth="1" />
+
+                    {/* Paper plane vector in bg */}
+                    <g transform="translate(140, 50) rotate(-15) scale(0.7)">
+                      <path d="M0,15 L32,0 L18,36 Z" fill="#1e293b" />
+                      <path d="M18,36 L12,24 L0,15 L18,18 Z" fill="#0f172a" />
+                      <path d="M12,24 L18,18 L18,36 Z" fill="#475569" />
+                    </g>
+                    {/* Dotted path trail to paper plane */}
+                    <path d="M 80,140 Q 110,80 150,60" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+
+                    {/* Sleek smartphone silhouette shadow */}
+                    <rect x="156" y="76" width="128" height="248" rx="20" fill="rgba(255,255,255,0.02)" />
+
+                    {/* Arm / Hand coming from bottom-right (Minimal ink vector) */}
+                    <path
+                      d="M 390,380 C 340,310 290,266 260,250 C 235,236 215,236 200,244 M 200,244 C 185,250 170,256 160,240 C 152,228 162,216 172,204 C 178,198 174,188 166,186 C 158,184 150,192 144,184 C 138,176 148,164 158,156 C 164,152 165,142 158,138 Q 146,132 152,120 C 158,108 174,116 182,126 C 190,136 206,140 220,132 L 236,124 M 200,244 L 230,230 L 250,210"
+                      stroke="#f5f5f7"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+
+                    {/* Smartphone silhouette frame */}
+                    <rect
+                      x="150"
+                      y="70"
+                      width="128"
+                      height="248"
+                      rx="22"
+                      fill="#090d16"
+                      stroke="#222d44"
+                      strokeWidth="3.5"
+                    />
+
+                    {/* Inside Smartphone UI layout elements */}
+                    {/* Top capsule notches */}
+                    <rect x="204" y="78" width="20" height="5" rx="2.5" fill="#f5f5f7" />
+                    
+                    {/* Inside Dashboard curves */}
+                    <rect x="162" y="94" width="104" height="26" rx="4" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+                    <text x="168" y="106" fill="#94a3b8" className="text-[5.5px] font-bold font-sans">Automated sourcing</text>
+                    <text x="168" y="113" fill="#cbd5e1" className="text-[4.5px] font-sans">Upload, receive global quotes.</text>
+
+                    {/* Simulated live chart */}
+                    <rect x="162" y="128" width="104" height="114" rx="8" fill="#0d111a" />
+                    
+                    <path
+                      d="M 166,220 Q 180,150 200,200 T 235,140 T 262,180"
+                      stroke="#2997ff"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    <circle cx="200" cy="200" r="3.5" fill="#2997ff" stroke="#0d111a" strokeWidth="1" />
+                    <circle cx="235" cy="140" r="3.5" fill="#10b981" stroke="#0d111a" strokeWidth="1" />
+                    
+                    {/* Tiny grid segments */}
+                    <line x1="162" y1="150" x2="266" y2="150" stroke="#1e293b" strokeWidth="0.5" />
+                    <line x1="162" y1="180" x2="266" y2="180" stroke="#1e293b" strokeWidth="0.5" />
+                    <line x1="162" y1="210" x2="266" y2="210" stroke="#1e293b" strokeWidth="0.5" />
+
+                    {/* Dynamic widget capsule inside the phone */}
+                    <rect x="162" y="250" width="104" height="25" rx="6" fill="#1e293b" />
+                    <rect x="168" y="256" width="36" height="13" rx="3" fill="#10b981" />
+                    <text x="174" y="264" fill="#ffffff" className="text-[5px] font-bold font-mono">ACTIVE</text>
+                    
+                    <circle cx="225" cy="262" r="3" fill="#475569" />
+                    <circle cx="235" cy="262" r="3" fill="#475569" />
+                    <circle cx="245" cy="262" r="3" fill="#475569" />
+                    <circle cx="255" cy="262" r="3" fill="#475569" />
+
+                    {/* Smartphone physical buttons */}
+                    <rect x="148" y="120" width="2" height="14" rx="1" fill="#334155" />
+                    <rect x="148" y="140" width="2" height="14" rx="1" fill="#334155" />
+                    <rect x="278" y="130" width="2" height="20" rx="1" fill="#334155" />
+                  </svg>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
       </section>
 
-      {/* --- EXPERTISE SECTION --- */}
-      <section id="our-expertise" className="py-24 px-4 md:px-12 border-t border-white/4 relative bg-[#0c1017]/40">
+
+      {/* --- SELECTED WORKS SECTION (Alternating tiles pulse stack) --- */}
+      <section id="selected-works" className="border-t border-apple-hairline">
+        
+        {/* Alternating Edge-to-Edge Product Tiles list (zero rounding, touching borders) */}
+        <div className="divide-y divide-apple-hairline">
+          {PROJECTS.map((project, idx) => {
+            const isEven = idx % 2 === 0;
+            // Alternate tile background: Premium Dark 1 ↔ Premium Dark 2
+            let bgClass = "bg-[#0a0f1d] text-white";
+            let subtitleClass = "text-apple-ink-muted text-[17px]";
+            let linkClass = "text-apple-blue hover:underline text-[15px] font-semibold flex items-center gap-1 cursor-pointer";
+            
+            if (!isEven) {
+              bgClass = "bg-[#111726] text-white";
+              subtitleClass = "text-[#94a3b8] text-[17px]";
+              linkClass = "text-apple-blue hover:underline text-[15px] font-semibold flex items-center gap-1 cursor-pointer";
+            }
+
+            return (
+              <div 
+                id={`project-tile-${project.id}`}
+                key={project.id}
+                className={`py-20 md:py-28 px-4 md:px-8 ${bgClass} transition-colors duration-400`}
+              >
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                  
+                  {/* Left info stack (Column span taking 5) */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <h3 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-white">
+                      {project.title}
+                    </h3>
+                    <p className={subtitleClass}>
+                      {project.description}
+                    </p>
+                    
+                    {/* Tiny specs pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {project.techStack.slice(0, 3).map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="bg-white/5 px-2.5 py-1 rounded text-xs font-mono tracking-tight text-[#94a3b8]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="pt-4">
+                      <button
+                        id={`project-detail-trigger-${project.id}`}
+                        onClick={() => setSelectedProject(project)}
+                        className={linkClass}
+                      >
+                        <span>Examine technical parameters</span>
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right product graphics with Single drop shadow (Column span taking 7) */}
+                  <div className="lg:col-span-7 flex justify-center w-full">
+                    <div 
+                      onClick={() => setSelectedProject(project)}
+                      className="relative w-full max-w-2xl aspect-video overflow-hidden rounded-[2rem] border border-apple-hairline/25 shadow-xl cursor-pointer hover:scale-[1.015] transition duration-300 group"
+                    >
+                      <ProjectVectorShowcase projectId={project.id} />
+                      <div className="absolute inset-0 bg-transparent group-hover:bg-black/5 duration-300 pointer-events-none" />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* --- OUR EXPERTISE SECTION (Styled as White Store-Utility-Cards) --- */}
+      <section id="our-expertise" className="py-24 px-4 md:px-8 border-t border-apple-hairline bg-apple-parchment">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-black font-display text-white tracking-tight">
-              Our Expertise
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-apple-ink font-display">
+              System Engineering & Design
             </h2>
-            <p className="text-xs text-[#b7c4ff] uppercase tracking-widest font-bold font-display">
-              경계를 허무는 기술과 디자인의 결합
+            <p className="text-[17px] text-apple-ink-muted max-w-2xl mx-auto font-sans leading-relaxed">
+              We focus purely on crafting high-fidelity design layouts coupled with ultra-scalable architectures.
             </p>
           </div>
 
-          {/* Cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Cards grid (White Store-Utility Cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {SERVICES.map((srv) => {
-              const matchesSelected = selectedService?.id === srv.id;
+              const isSelected = selectedService?.id === srv.id;
               return (
                 <div 
                   id={`expertise-card-${srv.id}`}
                   key={srv.id}
-                  onClick={() => setSelectedService(matchesSelected ? null : srv)}
-                  className={`p-6 rounded-2xl glass-panel glass-panel-hover flex flex-col justify-between min-h-[220px] transition-all duration-300 cursor-pointer select-none group relative overflow-hidden ${
-                    matchesSelected ? 'bg-indigo-950/20 border-indigo-500/30' : ''
+                  onClick={() => setSelectedService(isSelected ? null : srv)}
+                  className={`bg-apple-pearl border text-left p-6 rounded-[18px] transition-all duration-300 cursor-pointer relative overflow-hidden select-none flex flex-col justify-between min-h-[260px] ${
+                    isSelected ? 'border-apple-blue ring-1 ring-apple-blue/20' : 'border-apple-hairline hover:border-apple-blue/30'
                   }`}
                 >
                   <div>
-                    {/* Glowing background highlights */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/2 rounded-full blur-xl group-hover:bg-indigo-500/8 transition" />
-                    
-                    {/* Icon wrapper */}
-                    <div className="p-2 w-max rounded-lg bg-white/5 border border-white/6 text-[#b7c4ff] group-hover:bg-[#b7c4ff]/10 group-hover:scale-110 duration-300">
+                    {/* Header icons */}
+                    <div className="p-2 w-max rounded-lg bg-apple-parchment text-apple-blue">
                       {srv.icon === 'Monitor' && <Monitor className="h-5 w-5" />}
                       {srv.icon === 'Layers' && <Layers className="h-5 w-5" />}
                       {srv.icon === 'Code' && <Code className="h-5 w-5" />}
                     </div>
 
-                    <h3 className="text-lg font-bold font-display text-white mt-5 group-hover:text-[#b7c4ff] transition">
+                    <h3 className="text-lg font-semibold text-apple-ink mt-5 leading-tight font-display">
                       {srv.title}
                     </h3>
-                    <p className="text-xs text-[#c4c5d7]/85 mt-2.5 leading-relaxed font-sans font-light">
+                    <p className="text-[14px] text-apple-ink-muted mt-2.5 leading-normal font-sans">
                       {srv.description}
                     </p>
                   </div>
 
-                  {/* Interactive detail toggle text */}
-                  <div className="pt-6 border-t border-white/4 mt-6 flex items-center justify-between">
-                    <span className="text-[11px] text-[#8e90a0] font-mono uppercase tracking-wider">
-                      {matchesSelected ? 'Hide Parameters' : 'Explore systems & stack'}
-                    </span>
-                    <ArrowRight className={`h-4 w-4 text-[#8e90a0] group-hover:translate-x-1 duration-200 ${matchesSelected ? 'rotate-90 text-indigo-400' : ''}`} />
+                  {/* Option toggle specs */}
+                  <div className="pt-4 border-t border-apple-hairline mt-6 flex items-center justify-between text-xs text-apple-blue font-semibold">
+                    <span>{isSelected ? "Hide parameters" : "Read options & stack"}</span>
+                    <ChevronRight className={`h-3 w-3 transform duration-200 ${isSelected ? 'rotate-90' : ''}`} />
                   </div>
 
-                  {/* Accordion detail pane */}
+                  {/* Accordion list */}
                   <AnimatePresence>
-                    {matchesSelected && (
+                    {isSelected && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="overflow-hidden pt-4 mt-2 border-t border-indigo-500/10"
+                        className="overflow-hidden pt-4 mt-2 border-t border-apple-hairline/60"
                       >
-                        <div className="space-y-4">
+                        <div className="space-y-4 text-xs font-sans">
                           <div>
-                            <span className="text-[10px] text-indigo-300 font-bold uppercase tracking-wider block mb-1.5">Capabilities</span>
-                            <ul className="space-y-1.5 list-none">
+                            <span className="text-[10px] text-apple-blue font-bold uppercase tracking-wider block mb-1">CAPABILITIES</span>
+                            <ul className="space-y-1 list-none text-apple-ink">
                               {srv.details.map((detail, idx) => (
-                                <li key={idx} className="text-xs text-[#c4c5d7]/90 flex items-start gap-1.5 font-sans leading-normal">
-                                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 shrink-0 mt-1.5" />
+                                <li key={idx} className="flex items-start gap-1.5 text-xs text-apple-ink-muted">
+                                  <span className="h-1 w-1 rounded-full bg-apple-blue shrink-0 mt-1.5" />
                                   <span>{detail}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
                           <div>
-                            <span className="text-[10px] text-indigo-300 font-bold uppercase tracking-wider block mb-1.5">Framework stack</span>
+                            <span className="text-[10px] text-apple-blue font-bold uppercase tracking-wider block mb-1">SYSTEM STACK</span>
                             <div className="flex flex-wrap gap-1">
                               {srv.techStack.map((tech) => (
-                                <span key={tech} className="px-2 py-0.5 bg-white/4 border border-white/6 rounded-sm text-[10px] font-mono text-white">
+                                <span key={tech} className="px-2 py-0.5 bg-apple-parchment text-[10px] rounded font-mono font-medium text-apple-ink">
                                   {tech}
                                 </span>
                               ))}
@@ -247,270 +602,91 @@ export default function App() {
         </div>
       </section>
 
-      {/* --- SELECTED WORKS SECTION --- */}
-      <section id="selected-works" className="py-24 px-4 md:px-12 border-t border-white/4">
+      {/* --- STRATEGIC PARTNERSHIPS SECTION (Museum glass grids, no shadows) --- */}
+      <section id="strategic-partnerships" className="py-24 px-4 md:px-8 border-t border-apple-hairline bg-[#0a0f1d]">
         <div className="max-w-7xl mx-auto space-y-12">
-          
-          {/* Header Block with in-line filter switcher */}
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-white/5 pb-6">
-            <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-black font-display text-white tracking-tight">
-                Selected Works
-              </h2>
-              <p className="text-xs text-[#8e90a0] uppercase tracking-widest font-bold tracking-[0.15em]">
-                최근 프로젝트 쇼케이스
-              </p>
-            </div>
-
-            {/* Filter buttons inline with head */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              {filters.map((filter) => {
-                const isActive = activeFilter === filter;
-                return (
-                  <button
-                    id={`filter-btn-${filter.replace(/\s+/g, '-').toLowerCase()}`}
-                    key={filter}
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
-                      isActive 
-                        ? 'bg-[#b7c4ff] text-[#002683] shadow-md shadow-[#b7c4ff]/10' 
-                        : 'bg-white/4 hover:bg-white/8 text-[#c4c5d7]'
-                    }`}
-                  >
-                    {filter}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Grid Layout of Featured Projects (Mirroring the layout of screenshot) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-            {/* NexGen Retail Platform (Large card on Left - taking 7 span columns) */}
-            <motion.div 
-              layoutId="project-card-nexgen-retail"
-              onClick={() => setSelectedProject(PROJECTS[0])}
-              className="md:col-span-7 rounded-2xl overflow-hidden glass-panel border border-white/8 group relative min-h-[460px] flex flex-col justify-end p-6 md:p-8 cursor-pointer shadow-lg hover:shadow-cyan-400/5 duration-300"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0e131e]/95 via-[#0e131e]/25 to-transparent z-1" />
-              <img
-                src={PROJECTS[0].imageUrl}
-                alt={PROJECTS[0].title}
-                referrerPolicy="no-referrer"
-                className="absolute inset-0 h-full w-full object-cover group-hover:scale-103 duration-500 ease-out transition z-0 opacity-75"
-              />
-
-              {/* Float specs container */}
-              <div className="relative z-2 space-y-3 max-w-xl">
-                <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold bg-[#b7c4ff]/10 text-[#b7c4ff] border border-[#b7c4ff]/20 backdrop-blur-md">
-                  {PROJECTS[0].category}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold font-display text-white tracking-tight group-hover:text-cyan-300 duration-200">
-                  {PROJECTS[0].title}
-                </h3>
-              </div>
-            </motion.div>
-
-            {/* Right stack (taking 5 span columns) */}
-            <div className="md:col-span-5 flex flex-col gap-6">
-              {/* Aura FinTech App (Top right card) */}
-              <motion.div
-                layoutId="project-card-aura-fintech"
-                onClick={() => setSelectedProject(PROJECTS[1])}
-                className="rounded-2xl overflow-hidden glass-panel border border-white/8 group relative h-[217px] flex flex-col justify-end p-6 cursor-pointer hover:shadow-indigo-500/5 duration-300"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0e131e]/90 via-[#0e131e]/15 to-transparent z-1" />
-                <img
-                  src={PROJECTS[1].imageUrl}
-                  alt={PROJECTS[1].title}
-                  referrerPolicy="no-referrer"
-                  className="absolute inset-0 h-full w-full object-cover group-hover:scale-103 duration-500 ease-out transition z-0 opacity-75"
-                />
-
-                <div className="relative z-2 space-y-2">
-                  <span className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold bg-[#b7c4ff]/10 text-[#b7c4ff] border border-[#b7c4ff]/20 backdrop-blur-sm">
-                    {PROJECTS[1].category}
-                  </span>
-                  <h3 className="text-xl font-bold font-display text-white tracking-tight group-hover:text-indigo-300 duration-200">
-                    {PROJECTS[1].title}
-                  </h3>
-                </div>
-              </motion.div>
-
-              {/* Vortex Protocol and View All grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch flex-1">
-                {/* Vortex Protocol Card */}
-                <motion.div
-                  layoutId="project-card-vortex-protocol"
-                  onClick={() => setSelectedProject(PROJECTS[2])}
-                  className="rounded-2xl overflow-hidden glass-panel border border-white/8 group relative min-h-[217px] flex flex-col justify-end p-5 cursor-pointer hover:shadow-emerald-500/5 duration-300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e131e]/95 via-[#0e131e]/30 to-transparent z-1" />
-                  <img
-                    src={PROJECTS[2].imageUrl}
-                    alt={PROJECTS[2].title}
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-103 duration-500 ease-out transition z-0 opacity-70"
-                  />
-
-                  <div className="relative z-2 space-y-2">
-                    <span className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold bg-[#b7c4ff]/10 text-[#b7c4ff] border border-[#b7c4ff]/20 backdrop-blur-sm">
-                      {PROJECTS[2].category}
-                    </span>
-                    <h3 className="text-base font-bold font-display text-white tracking-tight group-hover:text-teal-300 duration-200">
-                      {PROJECTS[2].title}
-                    </h3>
-                  </div>
-                </motion.div>
-
-                {/* View All Projects Card (Reflecting the grey blank grid box with arrow circle) */}
-                <div 
-                  id="view-all-projects-grid-btn"
-                  onClick={handleScrollToPlanner}
-                  className="rounded-2xl bg-white/4 border border-white/6 group flex flex-col items-center justify-center p-5 text-center cursor-pointer hover:bg-white/6 hover:border-white/12 transition duration-300 relative min-h-[217px]"
-                >
-                  <div className="h-11 w-11 rounded-full border border-white/12 flex items-center justify-center text-[#c4c5d7] group-hover:bg-[#b7c4ff] group-hover:text-[#002683] group-hover:border-[#b7c4ff] transition duration-300 mb-3 ml-2">
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-0.5 transition" />
-                  </div>
-                  <h4 className="text-xs font-bold font-display text-[#c4c5d7] group-hover:text-white uppercase tracking-widest leading-none">
-                    View All Projects
-                  </h4>
-                  <p className="text-[10px] text-gray-500 mt-1 pb-1">Or plan custom setup</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- STRATEGIC PARTNERSHIPS SECTION --- */}
-      <section id="strategic-partnerships" className="py-24 px-4 md:px-12 bg-[#0c1017]/50 border-t border-white/4 relative">
-        <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-3">
-            <span className="text-[10px] tracking-[0.2em] font-bold font-display uppercase text-[#b7c4ff]">OUR NETWORK</span>
-            <h2 className="text-3xl md:text-4xl font-black font-display text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white font-display">
               Strategic Partnerships
             </h2>
-            <p className="text-xs text-[#c4c5d7] max-w-xl mx-auto font-sans">
-              We collaborate with global technology leaders to deliver cutting-edge digital solutions.
+            <p className="text-[17px] text-apple-ink-muted max-w-xl mx-auto font-sans leading-relaxed">
+              We collaborate with enterprise engineering platforms to assemble pristine web nodes.
             </p>
           </div>
 
-          {/* Grids with logo boxes matching mockup */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {PARTNERS.map((pt) => {
-              return (
-                <div 
-                  id={`partner-card-${pt.id}`}
-                  key={pt.id}
-                  className="p-8 rounded-2xl glass-panel text-center flex flex-col justify-center items-center group cursor-help transition transform hover:scale-102 hover:border-[#b7c4ff]/20 duration-300 relative overflow-hidden"
-                >
-                  {/* Backdrop subtle overlay detail */}
-                  <div className="absolute top-0 left-0 w-2 h-full bg-indigo-500/0 group-hover:bg-indigo-500/20 transition duration-300" />
-                  
-                  <span className="text-2xl font-black tracking-tight text-[#8e90a0] group-hover:text-white transition duration-300 block">
-                    {pt.logo}
-                  </span>
-                  
-                  {/* Hover parameters overlay bubble / details */}
-                  <div className="mt-3.5 space-y-1 block max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-300 ease-out overflow-hidden border-t border-white/5 pt-0 group-hover:pt-3">
-                    <p className="text-[10px] text-[#b7c4ff] font-bold uppercase">{pt.industry}</p>
-                    <p className="text-[10px] text-gray-400 font-sans leading-relaxed">{pt.description}</p>
+          {/* Infinite Auto-Scrolling Logo Marquee with pause on hover */}
+          <div className="relative w-full overflow-hidden py-4 select-none">
+            {/* Elegant transparency fade mask on sides matching natural elite brand looks */}
+            <div className="absolute inset-y-0 left-0 w-12 md:w-36 bg-gradient-to-r from-[#0a0f1d] via-[#0a0f1d]/85 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-12 md:w-36 bg-gradient-to-l from-[#0a0f1d] via-[#0a0f1d]/85 to-transparent z-10 pointer-events-none" />
+
+            <div className="animate-marquee animate-marquee-paused-hover flex gap-6">
+              {[...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS].map((pt, idx) => {
+                return (
+                  <div 
+                    id={`partner-card-${pt.id}-${idx}`}
+                    key={`${pt.id}-${idx}`}
+                    className="w-[200px] sm:w-[260px] p-8 rounded-[11px] border border-apple-hairline bg-apple-pearl text-center flex flex-col justify-center items-center group cursor-help transition transform hover:scale-102 hover:border-gray-500 duration-250 relative overflow-hidden shrink-0"
+                  >
+                    <span className="text-2xl font-semibold tracking-tight text-white group-hover:text-apple-blue transition duration-250">
+                      {pt.logo}
+                    </span>
+                    
+                    <div className="mt-3 block max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-300 ease-out overflow-hidden border-t border-apple-hairline pt-0 group-hover:pt-3">
+                      <p className="text-[10px] text-apple-blue font-bold uppercase">{pt.industry}</p>
+                      <p className="text-[10px] text-apple-ink-muted font-sans leading-relaxed">{pt.description}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
 
           <div className="text-center">
             <button
               id="become-partner-btn"
               onClick={() => setIsPartnerModalOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-[#c4c5d7] hover:text-white bg-white/3 hover:bg-white/6 rounded-full cursor-pointer text-xs font-semibold tracking-wider uppercase transition duration-200"
+              className="inline-flex items-center gap-1 w-max px-5 py-2.5 bg-apple-pearl border border-apple-hairline hover:bg-apple-parchment text-white text-xs font-semibold rounded-full duration-250 cursor-pointer"
             >
-              <span>Become a Partner &bull;</span>
-              <span className="text-indigo-300 lowercase text-[11px]">inquire program</span>
+              <span>Apply for Partner Alliance</span>
+              <ChevronRight className="h-3.5 w-3.5" />
             </button>
           </div>
         </div>
       </section>
 
       {/* --- TESTIMONIALS SECTION --- */}
-      <section id="testimonials" className="py-24 px-4 md:px-12 border-t border-white/4">
+      <section id="testimonials" className="py-24 px-4 md:px-8 border-t border-apple-hairline bg-apple-parchment">
         <TestimonialSlider />
       </section>
 
-      {/* --- CALL TO ACTION (INTERACTIVE BLUEPRINT FORM) --- */}
-      <section id="project-estimate-section" className="py-24 px-4 md:px-12 bg-gradient-to-b from-transparent to-[#0a0d15] border-t border-white/4 font-sans border-b border-white/4 relative z-2">
-        <div className="max-w-7xl mx-auto space-y-14">
-          
-          <div className="text-center space-y-3.5 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-5xl font-black font-display text-white tracking-tight">
-              Let's Build <br className="sm:hidden" />
-              <span className="bg-gradient-to-r from-orange-300 via-indigo-300 to-purple-400 bg-clip-text text-transparent">Something Great</span>
-            </h2>
-            <p className="text-xs sm:text-sm text-[#c4c5d7] leading-relaxed">
-              새로운 프로젝트를 구상 중이신가요? 저희 팀이 귀하의 아이디어를 현실로 만들어 드릴 준비가 되어 있습니다.
-            </p>
-          </div>
-
-          <ProjectPlannerWizard onInquirySubmitted={() => {}} />
-
-          {/* Core Support Email copy utility banner */}
-          <div className="pt-8 border-t border-white/5 max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl glass-panel bg-[#121824]/20 text-center sm:text-left z-2">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-lg bg-[#b7c4ff]/8 text-[#b7c4ff]">
-                <Mail className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold font-display">Direct Communications</p>
-                <code className="text-sm font-semibold text-white font-mono">hello@neonlabs.com</code>
-              </div>
-            </div>
-
-            <button
-              id="copy-email-bottom-btn"
-              onClick={handleCopyEmail}
-              className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold cursor-pointer duration-200 ${
-                copiedEmail 
-                  ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
-                  : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-              }`}
-            >
-              {copiedEmail ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-              <span>{copiedEmail ? 'Copied Securely' : 'Copy Address'}</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* --- FOOTER --- */}
-      <footer className="py-16 md:py-20 px-4 md:px-12 bg-[#070a10] text-[#c4c5d7] relative z-2 text-xs">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-white/5 pb-10">
+      {/* --- FOOTER (Parchment, scannable dense links) --- */}
+      <footer className="py-16 md:py-24 px-6 md:px-12 bg-[#0a0f1d] text-[#94a3b8] border-t border-apple-hairline text-xs font-sans">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-apple-hairline/80 pb-12">
           
           <div className="md:col-span-6 space-y-4">
-            <span className="text-xl font-black tracking-[0.14em] font-display text-white">
-              NEON_LABS
+            <span className="text-xl font-bold tracking-[0.14em] font-display text-white">
+              LABS.
             </span>
-            <p className="text-xs text-gray-500 max-w-sm font-sans">
-              Crafting digital futures. High-end user journeys, bespoke interactive modules, custom design systems, and fast scalable codebases built with elite precision.
+            <p className="text-xs text-[#94a3b8] max-w-sm leading-relaxed">
+              Crafting photography-first, high-fidelity premium user interfaces framed by beautiful typography and robust technical client-cloud pipelines.
             </p>
           </div>
 
-          <div className="md:col-span-6 flex flex-wrap gap-x-12 gap-y-6 md:justify-end text-[#8e90a0] font-semibold text-xs tracking-wide">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms of Service</a>
-            <a href="#" className="hover:text-white transition">Careers</a>
-            <a href="#" className="hover:text-white transition">Contact</a>
+          <div className="md:col-span-6 flex flex-wrap gap-x-12 gap-y-4 md:justify-end text-[#94a3b8] font-normal text-[13px]">
+            <a href="#" className="hover:text-apple-blue hover:underline transition">Privacy Policy</a>
+            <a href="#" className="hover:text-apple-blue hover:underline transition">Terms of Service</a>
+            <a href="#" className="hover:text-apple-blue hover:underline transition">Careers</a>
+            <a href="#" className="hover:text-apple-blue hover:underline transition">Contact Studio</a>
           </div>
 
         </div>
 
-        <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 text-[10.5px]">
-          <span>© 2024 NEON_LABS Creative. All rights reserved.</span>
-          <div className="flex items-center gap-1">
+        <div className="w-full pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-[11px]">
+          <span>© 2026 LABS. Creative Inc. All rights reserved.</span>
+          <div className="flex items-center gap-1 text-[10px] text-gray-500">
             <div className="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse" />
-            <span>Cyber-Premium Node Online (UTC-0)</span>
+            <span>Apple Design Compliant Node Online (UTC-0)</span>
           </div>
         </div>
       </footer>
