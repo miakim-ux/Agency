@@ -1,0 +1,6 @@
+{
+  "name": "NEON_LABS",
+  "description": "High-end Cyber-Premium design & web engineering studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
